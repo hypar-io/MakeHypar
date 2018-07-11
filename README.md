@@ -1,3 +1,5 @@
+<img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="300px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
+
 # dotnet-starter
 A .NET starter project for Hypar.
 
