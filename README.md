@@ -1,7 +1,7 @@
 # dotnet-starter
 A .NET starter project for Hypar.
 
-The `dotnet-starter` project is a dotnet core 2.0 library project which references the [Hypar SDK](https://github.com/hypar-io/sdk).
+The `dotnet-starter` project is a dotnet core 2.0 library project which references the [Hypar SDK](https://github.com/hypar-io/sdk) and uses the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/src/cli) to bootstrap your project.
 
 ## Getting Started
 ```
