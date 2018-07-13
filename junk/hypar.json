@@ -1,0 +1,22 @@
+{
+  "description": "A description of your Hypar function.",
+  "function": "junk::Junk.Junk::Handler",
+  "function_id": "junk",
+  "runtime": "dotnetcore2.0",
+  "parameters": {
+    "param1": {
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.1,
+      "description": "The first parameter.",
+      "type": "number"
+    },
+    "param2": {
+      "description": "The second parameter",
+      "type": "point"
+    }
+  },
+  "respository_url": null,
+  "returns": {},
+  "version": "0.0.1"
+}

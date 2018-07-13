@@ -1,0 +1,34 @@
+{
+    "description": "The dotnet-starter function.",
+    "function": "function::Hypar.Function::Handler",
+    "function_id": "dotnet-starter",
+    "runtime": "dotnetcore2.0",
+    "parameters": {
+        "width": {
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.1,
+            "description": "The width of the object.",
+            "type": "number"
+        },
+        "length": {
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.1,
+            "description": "The length of the object.",
+            "type": "number"
+        },
+        "height": {
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.1,
+            "description": "The height of the object.",
+            "type": "number"
+        }
+    },
+    "respository_url": null,
+    "returns": {
+        
+    },
+    "version": "0.0.1"
+}
