@@ -1,4 +1,5 @@
 ﻿using Amazon.Lambda.Core;
+using Hypar.Geometry;
 using Hypar.Elements;
 using System.Collections.Generic;
 
@@ -9,11 +10,15 @@ namespace Hypar
     {
         public Dictionary<string,object> Handler(Dictionary<string,object> input, ILambdaContext context)
         {
-            var profile = Profiles.Rectangular();
+            var length = double.Parse(input["length"].ToString());  // Find the length and convert to a number.
+            var width = double.Parse(input["width"].ToString());    // Find the width and convert to a number.
+            var height = double.Parse(input["height"].ToString());  // Find the height and convert to a number.
+
+            var profile = Profiles.Rectangular(Hypar.Geometry.Vector3.Origin(), width, height);
 
             var mass = Mass.WithBottomProfile(profile)
                             .WithBottomAtElevation(0)
-                            .WithTopAtElevation(1);
+                            .WithTopAtElevation(length);
 
             var model = new Model();
             model.AddElement(mass);
