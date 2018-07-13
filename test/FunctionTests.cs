@@ -1,4 +1,4 @@
-using Function;
+using Hypar;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -39,6 +39,9 @@ namespace test
             // Call your function and serialize the result.
             var func = new Function();
             var result = func.Handler(_data, null);
+
+            var computed = (Dictionary<string,object>)result["computed"];
+            Assert.Equal(1.0, computed["number_of_masses"]);
 
             // Serialize the results to json, so we can preview the results.
             // When Lambda runs the function, this is not necessary because it

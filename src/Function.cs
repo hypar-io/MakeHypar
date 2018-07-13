@@ -1,6 +1,7 @@
 ﻿using Amazon.Lambda.Core;
 using Hypar.Geometry;
 using Hypar.Elements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,7 +18,7 @@ namespace Hypar
     {
         public double ExtractData(Model m)
         {
-            var masses = m.Elements.Where(e=>e.GetType() == typeof(Mass));
+            var masses = m.Elements.Where(e=>e.Value.GetType() == typeof(Mass));
             return masses.Any()?masses.Count():0;
         }
     }
