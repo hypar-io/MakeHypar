@@ -12,3 +12,6 @@ The `dotnet-starter` project is a dotnet core 2.0 library project which referenc
 - Fork this repository.
 - Clone your fork of the repository locally.
 - Edit the `hypar.json` to describe your function.
+- Add your business logic to `/src/Function.cs`.
+- `dotnet build`
+- `dotnet test`
