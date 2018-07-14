@@ -2,6 +2,7 @@
     "description": "The dotnet-starter function.",
     "function": "function::Hypar.Function::Handler",
     "function_id": "dotnet-starter",
+    "name": "Dotnet Starter",
     "runtime": "dotnetcore2.0",
     "parameters": {
         "width": {
@@ -26,9 +27,12 @@
             "type": "number"
         }
     },
-    "respository_url": null,
+    "respository_url": "https://github.com/hypar-io/dotnet-starter",
     "returns": {
-        
+        "number_of_masses": {
+            "description": "The number of masses in the model.",
+            "type": "number"
+        }
     },
     "version": "0.0.1"
 }
