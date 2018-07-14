@@ -42,6 +42,7 @@ namespace Hypar
             var profile = Profiles.Rectangular(Hypar.Geometry.Vector3.Origin(), width, height);
 
             var mass = Mass.WithBottomProfile(profile)
+                            .WithTopProfile(profile)
                             .WithBottomAtElevation(0)
                             .WithTopAtElevation(length);
 
