@@ -1,26 +1,26 @@
 {
     "description": "The dotnet-starter function.",
     "function": "function::Hypar.Function::Handler",
-    "function_id": "dotnet-starter",
+    "function_id": "hypar-dotnet-starter",
     "name": "Dotnet Starter",
     "runtime": "dotnetcore2.0",
     "parameters": {
         "width": {
-            "min": 0.0,
+            "min": 0.1,
             "max": 1.0,
             "step": 0.1,
             "description": "The width of the object.",
             "type": "number"
         },
         "length": {
-            "min": 0.0,
+            "min": 0.1,
             "max": 1.0,
             "step": 0.1,
             "description": "The length of the object.",
             "type": "number"
         },
         "height": {
-            "min": 0.0,
+            "min": 0.1,
             "max": 1.0,
             "step": 0.1,
             "description": "The height of the object.",
@@ -34,5 +34,5 @@
             "type": "number"
         }
     },
-    "version": "0.0.2"
+    "version": "0.0.1"
 }
