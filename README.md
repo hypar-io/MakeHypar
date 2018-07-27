@@ -20,6 +20,3 @@ The `dotnet-starter` project is a dotnet core 2.0 library project which referenc
 cd test
 dotnet test
 ```
-
-
-.
