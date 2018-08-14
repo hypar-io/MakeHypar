@@ -51,7 +51,7 @@ namespace Hypar
             var offset = origin.ToVectorMeters();
             var plines = outline.ToPolylines();
             var pline = plines[0];
-            var boundary = new Polyline(pline.Vertices.Select(v=>new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)));
+            var boundary = new Polyline(pline.Vertices.Select(v=>new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).Reverse());
 
             var mass = Mass.WithBottomProfile(boundary)
                             .WithTopProfile(boundary)
