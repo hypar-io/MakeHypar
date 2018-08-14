@@ -13,7 +13,40 @@ namespace test
         private const string _testData = @"{
                 ""length"": 3.0,
                 ""width"": 3.0,
-                ""height"": 5.0
+                ""height"": 5.0,
+                ""location"": [
+                    {
+                        ""geometry"": {
+                        ""type"": ""Polygon"",
+                        ""coordinates"": [
+                            [
+                                [
+                                    -96.78204,
+                                    32.78411
+                                ],
+                                [
+                                    -96.78191,
+                                    32.78359
+                                ],
+                                [
+                                    -96.78050,
+                                    32.78383
+                                ],
+                                [
+                                    -96.78063,
+                                    32.78438
+                                ],
+                                [
+                                    -96.78204,
+                                    32.78411
+                                ]
+                            ]
+                        ]
+                    },
+                    ""type"": ""Feature"",
+                    ""properties"": {}
+                }
+            ]
             }";
 
         private Dictionary<string,object> _data;

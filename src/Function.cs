@@ -1,9 +1,11 @@
 ﻿using Amazon.Lambda.Core;
 using Hypar.Geometry;
 using Hypar.Elements;
+using Hypar.GeoJSON;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace Hypar
@@ -38,8 +40,20 @@ namespace Hypar
             var length = double.Parse(input["length"].ToString());  // Find the length and convert to a number.
             var width = double.Parse(input["width"].ToString());    // Find the width and convert to a number.
             var height = double.Parse(input["height"].ToString());  // Find the height and convert to a number.
+            var features = JsonConvert.DeserializeObject<Feature[]>(input["location"].ToString());
+            
+            // Extract location data.
+            // The GeoJSON may contain a number of features. Here we just
+            // take the first one assuming it's a Polygon, and we use
+            // its first point as the origin. 
+            var outline = (Polygon)features[0].Geometry;
+            var origin = outline.Coordinates[0][0];
+            var offset = origin.ToVectorMeters();
+            var plines = outline.ToPolylines();
+            var pline = plines[0];
+            var boundary = new Polyline(pline.Vertices.Select(v=>new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)));
 
-            var profile = Profiles.Rectangular(Hypar.Geometry.Vector3.Origin(), width, height);
+            var profile = Profiles.Rectangular(offset, width, height);
 
             var mass = Mass.WithBottomProfile(profile)
                             .WithTopProfile(profile)
@@ -49,6 +63,10 @@ namespace Hypar
             // Add your mass element to a new Model.
             var model = new Model();
             model.AddElement(mass);
+
+            // Set the origin of the model to convey to Hypar
+            // where to position the generated 3D model.
+            model.Origin = origin;
 
             // Add an extractor to count the masses.
             model.AddDataExtractor("number_of_masses", new MassCounter());

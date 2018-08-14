@@ -25,6 +25,10 @@
             "step": 0.1,
             "description": "The height of the object.",
             "type": "number"
+        },
+        "location" : {
+            "description": "The location of the object on the planet Earth.",
+            "type": "location"
         }
     },
     "respository_url": "https://github.com/hypar-io/dotnet-starter",
