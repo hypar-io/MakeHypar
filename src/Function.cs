@@ -56,7 +56,7 @@ namespace Hypar
             var mass = Mass.WithBottomProfile(boundary)
                             .WithTopProfile(boundary)
                             .WithBottomAtElevation(0)
-                            .WithTopAtElevation(length);
+                            .WithTopAtElevation(height);
 
             // Add your mass element to a new Model.
             var model = new Model();
