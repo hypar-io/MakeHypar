@@ -5,20 +5,6 @@
     "name": "Dotnet Starter",
     "runtime": "dotnetcore2.0",
     "parameters": {
-        "width": {
-            "min": 1.0,
-            "max": 10.0,
-            "step": 1.0,
-            "description": "The width of the object.",
-            "type": "number"
-        },
-        "length": {
-            "min": 1.0,
-            "max": 10.0,
-            "step": 1.0,
-            "description": "The length of the object.",
-            "type": "number"
-        },
         "height": {
             "min": 1.0,
             "max": 10.0,

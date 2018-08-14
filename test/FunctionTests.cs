@@ -11,8 +11,6 @@ namespace test
     {
         // Some test data that replicates the payload sent to your function.
         private const string _testData = @"{
-                ""length"": 3.0,
-                ""width"": 3.0,
                 ""height"": 5.0,
                 ""location"": [
                     {

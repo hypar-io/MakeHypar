@@ -37,8 +37,6 @@ namespace Hypar
         /// <returns>A dictionary containing results.</returns>
         public Dictionary<string,object> Handler(Dictionary<string,object> input, ILambdaContext context)
         {
-            var length = double.Parse(input["length"].ToString());  // Find the length and convert to a number.
-            var width = double.Parse(input["width"].ToString());    // Find the width and convert to a number.
             var height = double.Parse(input["height"].ToString());  // Find the height and convert to a number.
             var features = JsonConvert.DeserializeObject<Feature[]>(input["location"].ToString());
             
