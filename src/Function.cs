@@ -53,7 +53,7 @@ namespace Hypar
             var pline = plines[0];
             var boundary = new Polyline(pline.Vertices.Select(v=>new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)));
 
-            var profile = Profiles.Rectangular(offset, width, height);
+            var profile = Profiles.Rectangular(Vector3.Origin(), width, height);
 
             var mass = Mass.WithBottomProfile(profile)
                             .WithTopProfile(profile)
