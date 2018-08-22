@@ -23,6 +23,5 @@
             "description": "The number of masses in the model.",
             "type": "number"
         }
-    },
-    "version": "0.0.2"
+    }
 }
