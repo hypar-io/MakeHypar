@@ -19,7 +19,7 @@
             "type": "shell",
             "group": "test",
             "presentation": {
-                "reveal": "silent"
+                "showReuseMessage": false
             },
             "problemMatcher": "$msCompile"
         },

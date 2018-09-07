@@ -11,7 +11,7 @@ namespace test
     {
         // Some test data that replicates the payload sent to your function.
         private const string _testData = @"{
-                ""height"": 5.0,
+                ""height"": 20.0,
                 ""location"": [
                     {
                         ""geometry"": {
@@ -67,12 +67,15 @@ namespace test
         [Fact]
         public void Test()
         {
-            // Call your function and serialize the result.
             var func = new Function();
             var result = func.Handler(_data, null);
 
             var computed = (Dictionary<string,object>)result["computed"];
             Assert.True((double)computed["area"] > 0.0);
+
+            // Save the model to a .glb so we can view it
+            var data = Convert.FromBase64String((string)result["model"]);
+            File.WriteAllBytes("../../../../model.glb", data);
 
             // Serialize the results to json, so we can preview the results.
             // When Lambda runs the function, this is not necessary because it
