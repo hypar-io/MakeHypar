@@ -9,7 +9,6 @@ The `dotnet-starter` project is a dotnet core 2.0 library project which referenc
 - Install [.NET](https://www.microsoft.com/net/)
 
 ## Getting Started
-## Getting Started
 - Contact beta@hypar.io to have an account created. Functions can be authored and executed locally. **A login is only required when publishing your function to the world!**
 - Install [.NET](https://www.microsoft.com/net/)
 - Install the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/csharp/src/cli/).
