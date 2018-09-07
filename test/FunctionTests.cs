@@ -72,7 +72,7 @@ namespace test
             var result = func.Handler(_data, null);
 
             var computed = (Dictionary<string,object>)result["computed"];
-            Assert.Equal(1.0, computed["number_of_masses"]);
+            Assert.True((double)computed["area"] > 0.0);
 
             // Serialize the results to json, so we can preview the results.
             // When Lambda runs the function, this is not necessary because it
