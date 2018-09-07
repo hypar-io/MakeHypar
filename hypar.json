@@ -19,8 +19,8 @@
     },
     "repository_url": "https://github.com/hypar-io/dotnet-starter",
     "returns": {
-        "number_of_masses": {
-            "description": "The number of masses in the model.",
+        "area": {
+            "description": "The area of the mass.",
             "type": "number"
         }
     }

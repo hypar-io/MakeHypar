@@ -10,21 +10,6 @@ using Newtonsoft.Json;
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace Hypar
 {
-    /// <summary>
-    /// MassCounter implements the IDataExtractor interface.
-    /// When added to a model, this extractor just counts the number of masses.
-    /// This is a silly example because you'd probably want to extract more
-    /// meaningful data.
-    /// </summary>
-    public class MassCounter : Hypar.Elements.IDataExtractor
-    {
-        public double ExtractData(Model m)
-        {
-            var masses = m.Elements.Where(e=>e.Value.GetType() == typeof(Mass));
-            return masses.Any()?masses.Count():0;
-        }
-    }
-
     public class Function
     {
         /// <summary>
@@ -51,10 +36,7 @@ namespace Hypar
             var pline = plines[0];
             var boundary = new Polyline(pline.Vertices.Select(v=>new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).Reverse());
 
-            var mass = Mass.WithBottomProfile(boundary)
-                            .WithTopProfile(boundary)
-                            .WithBottomAtElevation(0)
-                            .WithTopAtElevation(height);
+            var mass = new Mass(boundary, 0, boundary, height);
 
             // Add your mass element to a new Model.
             var model = new Model();
@@ -64,11 +46,16 @@ namespace Hypar
             // where to position the generated 3D model.
             model.Origin = origin;
 
-            // Add an extractor to count the masses.
-            model.AddDataExtractor("number_of_masses", new MassCounter());
-
             // Use the ToHypar convenience method to serialize your Model.
-            return model.ToHypar();
+            var result = model.ToHypar();
+
+            // Extract some data from the model to return to Hypar.
+            result["computed"] = new Dictionary<string,object>()
+            {
+                {"area", mass.Location.Area}
+            };
+
+            return result;
         }
     }
 };
