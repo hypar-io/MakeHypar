@@ -29,14 +29,14 @@ namespace Hypar
             // The GeoJSON may contain a number of features. Here we just
             // take the first one assuming it's a Polygon, and we use
             // its first point as the origin. 
-            var outline = (Polygon)features[0].Geometry;
+            var outline = (Hypar.GeoJSON.Polygon)features[0].Geometry;
             var origin = outline.Coordinates[0][0];
             var offset = origin.ToVectorMeters();
-            var plines = outline.ToPolylines();
+            var plines = outline.ToPolygons();
             var pline = plines[0];
-            var boundary = new Polyline(pline.Vertices.Select(v=>new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).Reverse());
+            var boundary = new Hypar.Geometry.Polygon(pline.Vertices.Select(v=>new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).Reverse().ToList());
 
-            var mass = new Mass(boundary, 0, boundary, height);
+            var mass = new Mass(boundary, 0, height);
 
             // Add your mass element to a new Model.
             var model = new Model();
@@ -52,7 +52,7 @@ namespace Hypar
             // Extract some data from the model to return to Hypar.
             result["computed"] = new Dictionary<string,object>()
             {
-                {"area", mass.Location.Area}
+                {"area", mass.Perimeter.Area}
             };
 
             return result;

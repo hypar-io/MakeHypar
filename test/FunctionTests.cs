@@ -71,7 +71,8 @@ namespace test
             var result = func.Handler(_data, null);
 
             var computed = (Dictionary<string,object>)result["computed"];
-            Assert.True((double)computed["area"] > 0.0);
+            Assert.True(Math.Abs((double)computed["area"]) > 0.0);
+
 
             // Save the model to a .glb so we can view it
             var data = Convert.FromBase64String((string)result["model"]);
