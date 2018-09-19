@@ -1,8 +1,8 @@
 {
-    "description": "The dotnet-starter function.",
+    "description": "The Hypar starter generator.",
     "function": "function::Hypar.Function::Handler",
     "function_id": "hypar-dotnet-starter",
-    "name": "Dotnet Starter",
+    "name": "Hypar Starter",
     "runtime": "dotnetcore2.0",
     "parameters": {
         "height": {
