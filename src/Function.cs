@@ -52,7 +52,7 @@ namespace Hypar
             // Extract some data from the model to return to Hypar.
             result["computed"] = new Dictionary<string,object>()
             {
-                {"area", mass.Perimeter.Area}
+                {"area", mass.Profile.Perimeter.Area}
             };
 
             return result;
