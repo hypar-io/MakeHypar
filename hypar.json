@@ -1,6 +1,6 @@
 {
     "description": "The Hypar starter generator.",
-    "function_id": "hypar-dotnet-starter",
+    "function_id": "hypar-starter",
     "name": "Hypar Starter",
     "inputs": {
         "height": {
@@ -15,11 +15,11 @@
             "type": "location"
         }
     },
-    "repository_url": "https://github.com/hypar-io/dotnet-starter",
     "outputs": {
         "area": {
             "description": "The area of the mass.",
             "type": "number"
         }
-    }
+    },
+    "repository_url": "https://github.com/hypar-io/starter"
 }

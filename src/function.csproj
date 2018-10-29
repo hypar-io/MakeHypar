@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.3.0" />
-    <DotNetCliToolReference Include="HyparCLI" Version="0.1.0" />
-    <PackageReference Include="HyparSDK" Version="0.1.0" />
+    <DotNetCliToolReference Include="HyparCLI" Version="0.1.1" />
+    <PackageReference Include="HyparSDK" Version="0.1.1" />
   </ItemGroup>
 </Project>
