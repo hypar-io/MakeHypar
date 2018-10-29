@@ -3,13 +3,10 @@
 # starter
 A starter project for Hypar. You can see it running [here](https://hypar.io/functions/hypar-dotnet-starter).
 
-The `starter` project is a dotnet core 2.0 library project which references the [Hypar SDK](https://github.com/hypar-io/sdk) and uses the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/src/cli) to bootstrap your project.
-
-## Prerequisites
-- Install [.NET](https://www.microsoft.com/net/)
+The `starter` project is a dotnet core 2.0 library project which references the [Hypar SDK](https://github.com/hypar-io/sdk) and uses the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/src/cli) to help bootstrap your project.
 
 ## Getting Started
-- Contact beta@hypar.io to have an account created. Functions can be authored and executed locally. **A login is only required when publishing your function to the world!**
+- Go to https://hypar.io/ and sign up. **A login is only required when publishing your function to the world!**
 - Install [.NET](https://www.microsoft.com/net/)
 - Install the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/csharp/src/cli/).
 - Install an IDE. Here's a couple of options:
@@ -18,7 +15,8 @@ The `starter` project is a dotnet core 2.0 library project which references the 
 - Clone the starter repo.  
 ```git clone https://github.com/hypar-io/starter```. 
 - `cd starter`
-- Edit the `hypar.json` file to describe your function. See [configuration](#configuration).
+- Edit the `hypar.json` file to describe your function.
+- `hypar generate ./src` to build the `Input` and `Output` classes into the `src` directory.
 - `dotnet build`
 - Use the Hypar CLI to publish your function.
 ```
