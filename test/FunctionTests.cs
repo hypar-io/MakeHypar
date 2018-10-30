@@ -70,10 +70,11 @@ namespace test
         {
             var func = new Function();
             var output = func.Handler(_data, null);
-            Assert.True(Math.Abs(output.Area) > 0.0);
+            var computed = JsonConvert.DeserializeObject<Dictionary<string,object>>((string)output["computed"]);
+            Assert.True(Math.Abs((double)computed["area"]) > 0.0);
 
             // Save the model to a .glb so we can view it
-            output.Model.SaveGlb("../../../../model.glb");
+            File.WriteAllBytes("../../../../model.glb", Convert.FromBase64String((string)output["model"]));
 
             // Serialize the results to json, so we can preview the results.
             // When Lambda runs the function, this is not necessary because it
