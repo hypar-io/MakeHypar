@@ -1,4 +1,5 @@
 using Hypar;
+using Hypar.Functions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -47,7 +48,7 @@ namespace test
             ]
             }";
 
-        private Dictionary<string,object> _data;
+        private Input _data;
 
         public FunctionTest()
         {
@@ -57,31 +58,27 @@ namespace test
             // will get the data.
             using (var stream = GenerateStreamFromString(_testData))
             {
-                _data = serializer.Deserialize<Dictionary<string,object>>(stream);
+                _data = serializer.Deserialize<Input>(stream);
             }
             
             // Cache the data so it's available to the function test below.
-            _data = JsonConvert.DeserializeObject<Dictionary<string,object>>(_testData);
+            //_data = JsonConvert.DeserializeObject<Dictionary<string,object>>(_testData);
         }
 
         [Fact]
         public void Test()
         {
             var func = new Function();
-            var result = func.Handler(_data, null);
-
-            var computed = (Dictionary<string,object>)result["computed"];
-            Assert.True(Math.Abs((double)computed["area"]) > 0.0);
-
+            var output = func.Handler(_data, null);
+            Assert.True(Math.Abs(output.Area) > 0.0);
 
             // Save the model to a .glb so we can view it
-            var data = Convert.FromBase64String((string)result["model"]);
-            File.WriteAllBytes("../../../../model.glb", data);
+            output.Model.SaveGlb("../../../../model.glb");
 
             // Serialize the results to json, so we can preview the results.
             // When Lambda runs the function, this is not necessary because it
             // handles serializing the result to a stream.
-            var json = JsonConvert.SerializeObject(result);
+            var json = JsonConvert.SerializeObject(output);
             Console.WriteLine(json);
         }
 
