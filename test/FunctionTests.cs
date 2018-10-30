@@ -60,9 +60,6 @@ namespace test
             {
                 _data = serializer.Deserialize<Input>(stream);
             }
-            
-            // Cache the data so it's available to the function test below.
-            //_data = JsonConvert.DeserializeObject<Dictionary<string,object>>(_testData);
         }
 
         [Fact]
