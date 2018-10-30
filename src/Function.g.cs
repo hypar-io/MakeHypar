@@ -11,15 +11,15 @@ using System.Collections.Generic;
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace Hypar.Functions
 {
-	public class Function
-	{
-        public Dictionary<string,object> Handler(Input input, ILambdaContext context)
-    	{
-			var f = new HyparStarter();
-			var output = f.Execute(input);
-			var results = output.Model.ToHypar();
-			results["computed"] = JsonConvert.SerializeObject(output);
-			return results;
-    	}
-  	}
+    public class Function
+    {
+        public Dictionary<string, object> Handler(Input input, ILambdaContext context)
+        {
+            var f = new HyparStarter();
+            var output = f.Execute(input);
+            var results = output.Model.ToHypar();
+            results["computed"] = JsonConvert.SerializeObject(output);
+            return results;
+        }
+    }
 }

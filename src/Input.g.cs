@@ -8,19 +8,19 @@ using Newtonsoft.Json;
 
 namespace Hypar.Functions
 {
-	public class Input
-	{
-		/// <summary>
-		/// The height of the object.
-		/// </summary>
-		[JsonProperty("height")]
-		public double Height {get;}
+    public class Input
+    {
+        /// <summary>
+        /// The height of the object.
+        /// </summary>
+        [JsonProperty("height")]
+        public double Height { get; }
 
-		/// <summary>
-		/// The location of the object on the planet Earth.
-		/// </summary>
-		[JsonProperty("location")]
-		public Feature[] Location {get;}
+        /// <summary>
+        /// The location of the object on the planet Earth.
+        /// </summary>
+        [JsonProperty("location")]
+        public Feature[] Location { get; }
 
 
         /// <summary>
@@ -28,14 +28,14 @@ namespace Hypar.Functions
         /// For input classes, the Model will contain data computed by prior executions on Hypar.
         /// For output classes, the Model will contain data that you want to return to Hypar.
         /// </summary>
-		[JsonIgnore]
-		public Model Model{get;set;}
+        [JsonIgnore]
+        public Model Model { get; set; }
 
-		public Input(double height, Feature[] location)
-		{
-			this.Height = height;
-			this.Location = location;
+        public Input(double height, Feature[] location)
+        {
+            this.Height = height;
+            this.Location = location;
 
-		}
-	}
+        }
+    }
 }

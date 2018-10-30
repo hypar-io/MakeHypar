@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace Hypar.Functions
 {
-  	public class HyparStarter
-	{
-		public Output Execute(Input input)
-		{
+    public class HyparStarter
+    {
+        public Output Execute(Input input)
+        {
             // Extract location data.
             // The GeoJSON may contain a number of features. Here we just
             // take the first one assuming it's a Polygon, and we use
@@ -17,7 +17,7 @@ namespace Hypar.Functions
             var offset = origin.ToVectorMeters();
             var plines = outline.ToPolygons();
             var pline = plines[0];
-            var boundary = new Hypar.Geometry.Polygon(pline.Vertices.Select(v=>new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToList());
+            var boundary = new Hypar.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToList());
 
             var mass = new Mass(boundary, 0, input.Height);
 
@@ -29,10 +29,10 @@ namespace Hypar.Functions
             // where to position the generated 3D model.
             model.Origin = origin;
 
-			var output = new Output(mass.Profile.Perimeter.Area);
-			output.Model = model;
+            var output = new Output(mass.Profile.Perimeter.Area);
+            output.Model = model;
 
             return output;
-		}
-  	}
+        }
+    }
 }

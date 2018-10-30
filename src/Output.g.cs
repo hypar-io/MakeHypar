@@ -8,13 +8,13 @@ using Newtonsoft.Json;
 
 namespace Hypar.Functions
 {
-	public class Output
-	{
-		/// <summary>
-		/// The area of the mass.
-		/// </summary>
-		[JsonProperty("area")]
-		public double Area {get;}
+    public class Output
+    {
+        /// <summary>
+        /// The area of the mass.
+        /// </summary>
+        [JsonProperty("area")]
+        public double Area { get; }
 
 
         /// <summary>
@@ -23,12 +23,12 @@ namespace Hypar.Functions
         /// For output classes, the Model will contain data that you want to return to Hypar.
         /// </summary>
 		[JsonIgnore]
-		public Model Model{get;set;}
+        public Model Model { get; set; }
 
-		public Output(double area)
-		{
-			this.Area = area;
+        public Output(double area)
+        {
+            this.Area = area;
 
-		}
-	}
+        }
+    }
 }
