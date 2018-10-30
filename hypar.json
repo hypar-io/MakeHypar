@@ -1,6 +1,6 @@
 {
     "description": "The Hypar starter generator.",
-    "function_id": "hypar-starter",
+    "function_id": "hypar-dotnet-starter",
     "name": "Hypar Starter",
     "inputs": {
         "height": {
