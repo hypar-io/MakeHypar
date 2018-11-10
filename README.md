@@ -1,4 +1,4 @@
-<img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="300px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
+<img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="200px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"> <- Your logo here
 
 # starter
 A starter project for Hypar. You can see it running [here](https://hypar.io/functions/hypar-dotnet-starter).
