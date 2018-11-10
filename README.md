@@ -1,7 +1,7 @@
-<img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="200px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;"> <- Your logo here
+<img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="200px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
 
 # starter
-This is a generator. A generator is code which generates buildings (or parts of buildings). More specifically, a generator is code which implements an interface from the [Elements library](https://github.com/hypar-io/elements) to take in a `Model`, do some compute, and return a `Model`. 
+This is a generator. A generator is code which generates buildings (or parts of buildings). More specifically, a generator is code which implements an interface from the [Elements](https://github.com/hypar-io/elements) library to take in a `Model`, do some compute, and return a `Model`. 
 
 By managing your generator as code, you can take advantage of all the great tools for code collaboration and deployment offered by GitHub. Like any good repo, your generator should have a great `README.md`(like this one) which acts as the documentation for your generator. If you look below, you'll see that this `README.md` explains the generator's inputs and outputs, and has a short description of what kind of output your generator creates. Over time we're going to automate the creation of a preview image, like the one you see below, which'll give you a good idea of what you should expect to see from a generator.
 
@@ -20,7 +20,9 @@ Generators are just code, so you're free to compile and run them wherever they'r
 - Area - The area of the mass.
 
 ## Getting Started with Hypar
-- Go to https://hypar.io/ and sign up. **A login is only required when publishing your function to the world!**
+This section is a deeper dive into how to get started with Hypar. If you clone this repo to get started building your own generator, then you can remove this section when you edit this `README.md`.
+
+- Go to https://www.hypar.io/ and sign up. **A login is only required when publishing your function to the world!**
 - Install [.NET](https://www.microsoft.com/net/)
 - Install the Hypar CLI:
   - Download for:
