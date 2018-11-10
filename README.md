@@ -3,7 +3,16 @@
 # starter
 A starter project for Hypar. You can see it running [here](https://hypar.io/functions/hypar-dotnet-starter).
 
+<img src="https://github.com/hypar-io/starter/raw/master/preview.png">
+
 The `starter` project is a dotnet core 2.0 library project which references the [Hypar SDK](https://github.com/hypar-io/sdk) and uses the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/src/cli) to help bootstrap your project.
+
+## Inputs
+- Height - The height of the object.
+- Location - The location of the object on the planet Earth.
+
+## Outputs
+- Area - The area of the mass.
 
 ## Getting Started
 - Go to https://hypar.io/ and sign up. **A login is only required when publishing your function to the world!**
