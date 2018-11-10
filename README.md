@@ -8,6 +8,9 @@ The `starter` project is a dotnet core 2.0 library project which references the 
 
 ## Inputs
 - Height - The height of the object.
+  - Min: 1.0,
+  - Max: 10.0
+  - Step: 1.0
 - Location - The location of the object on the planet Earth.
 
 ## Outputs
