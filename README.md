@@ -4,7 +4,7 @@
 A starter project for Hypar. You can see it running [here](https://hypar.io/functions/hypar-dotnet-starter).
 The `starter` project is a dotnet core 2.0 library project which references the [Hypar SDK](https://github.com/hypar-io/sdk) and uses the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/src/cli) to help bootstrap your project.
 
-<img src="https://github.com/hypar-io/starter/raw/master/preview.png">
+<img src="https://github.com/hypar-io/starter/raw/master/preview.png" width="512px">
 
 ## Inputs
 - Height - The height of the object.
