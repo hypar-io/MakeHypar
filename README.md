@@ -9,14 +9,14 @@ Generators are just code, so you're free to compile and run them wherever they'r
 
 <img src="https://github.com/hypar-io/starter/raw/master/preview.png" width="512px">
 
-## Inputs
+### Inputs
 - Height - The height of the object.
   - Min: 1.0
   - Max: 10.0
   - Step: 1.0
 - Location - The location of the object on the planet Earth.
 
-## Outputs
+### Outputs
 - Area - The area of the mass.
 
 ## Getting Started with Hypar
