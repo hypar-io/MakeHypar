@@ -29,8 +29,7 @@ namespace Hypar.Functions
             // where to position the generated 3D model.
             model.Origin = origin;
 
-            var output = new Output(mass.Profile.Perimeter.Area);
-            output.Model = model;
+            var output = new Output(model, mass.Profile.Perimeter.Area);
 
             return output;
         }
