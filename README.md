@@ -1,12 +1,28 @@
-<img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="300px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
+<img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="200px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
 
-# starter
-A starter project for Hypar. You can see it running [here](https://hypar.io/functions/hypar-dotnet-starter).
+# generator
+This is a generator. A generator is code which generates buildings (or parts of buildings). More specifically, a generator is code which implements an interface from the [Elements](https://github.com/hypar-io/elements) library to take in a `Model`, do some compute, and return a `Model`. 
 
-The `starter` project is a dotnet core 2.0 library project which references the [Hypar SDK](https://github.com/hypar-io/sdk) and uses the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/src/cli) to help bootstrap your project.
+By managing your generator as code, you can take advantage of all the great tools for code collaboration and deployment offered by GitHub. Like any good repo, your generator should have a great `README.md`(like this one) which acts as the documentation for your generator. If you look below, you'll see that this `README.md` explains the generator's inputs and outputs, and has a short description of what kind of output your generator creates. Over time we're going to automate the creation of a preview image, like the one you see below, which'll give you a good idea of what you should expect to see from a generator.
 
-## Getting Started
-- Go to https://hypar.io/ and sign up. **A login is only required when publishing your function to the world!**
+Generators are just code, so you're free to compile and run them wherever they're compatible. This generator is a .Net Standard 2.0 library written in C# which means you can use it in a Revit addin, a Unity app, or as a "zero touch" library in Dynamo. But if you really want to put your generator to work, you can publish it to run on the Hypar platform, making it globally available and executable via Hypar's API. You can see this generator running [here](https://hypar.io/functions/hypar-dotnet-starter).  
+
+<img src="https://github.com/hypar-io/starter/raw/master/preview.png" width="512px">
+
+### Inputs
+- Height - The height of the object.
+  - Min: 1.0
+  - Max: 10.0
+  - Step: 1.0
+- Location - The location of the object on the planet Earth.
+
+### Outputs
+- Area - The area of the mass.
+
+## Getting Started with Hypar
+This section is a deeper dive into how to get started with Hypar. If you clone this repo to get started building your own generator, then you can remove this section when you edit this `README.md`.
+
+- Go to https://www.hypar.io/ and sign up. **A login is only required when publishing your function to the world!**
 - Install [.NET](https://www.microsoft.com/net/)
 - Install the Hypar CLI:
   - Download for:
