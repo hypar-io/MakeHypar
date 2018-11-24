@@ -67,7 +67,7 @@ namespace test
         {
             var func = new Function();
             var output = func.Handler(_data, null);
-            var computed = JsonConvert.DeserializeObject<Dictionary<string,object>>((string)output["computed"]);
+            var computed = (Dictionary<string,object>)output["computed"];
             Assert.True(Math.Abs((double)computed["area"]) > 0.0);
 
             // Save the model to a .glb so we can view it
