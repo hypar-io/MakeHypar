@@ -331,3 +331,4 @@ ASALocalRun/
 .DS_Store
 
 model.glb
+*.g.cs
