@@ -1,14 +1,17 @@
-using Hypar.Geometry;
 using Hypar.Elements;
+using Hypar.Geometry;
 using System.Linq;
 
 namespace Hypar.Functions
 {
-    public class HyparStarter
-    {
-        public Output Execute(Input input)
-        {
-            // Extract location data.
+    /// <summary>
+    /// The Hypar starter generator.
+    /// </summary>
+  	public class HyparDotnetStarter
+	{
+		public Output Execute(Input input)
+		{
+			// Extract location data.
             // The GeoJSON may contain a number of features. Here we just
             // take the first one assuming it's a Polygon, and we use
             // its first point as the origin. 
@@ -32,6 +35,6 @@ namespace Hypar.Functions
             var output = new Output(model, mass.Profile.Perimeter.Area);
 
             return output;
-        }
-    }
+		}
+  	}
 }
