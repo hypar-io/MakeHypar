@@ -2,7 +2,7 @@ using Hypar.Elements;
 using Hypar.Geometry;
 using System.Linq;
 
-namespace Hypar.Functions
+namespace Hypar
 {
     /// <summary>
     /// The Hypar starter generator.
