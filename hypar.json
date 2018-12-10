@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/hypar-io/generator/master/hypar-schema.json",
     "description": "The Hypar starter generator.",
     "function_id": "hypar-dotnet-starter",
     "name": "Hypar Starter",
