@@ -86,14 +86,14 @@ namespace test
             var computed = (Dictionary<string,object>)output["computed"];
             Assert.True(Math.Abs((double)computed["area"]) > 0.0);
 
-            // Save the model to a .glb so we can view it
-            File.WriteAllBytes("../../../../model.glb", Convert.FromBase64String((string)output["model"]));
+            var model = Model.FromJson(output["elements"].ToString());
+            model.SaveGltf("model.gltf");
 
             // Serialize the results to json, so we can preview the results.
             // When Lambda runs the function, this is not necessary because it
             // handles serializing the result to a stream.
-            var json = JsonConvert.SerializeObject(output);
-            Console.WriteLine(json);
+            // var json = JsonConvert.SerializeObject(output);
+            // Console.WriteLine(json);
         }
 
         private static Stream GenerateStreamFromString(string s)
