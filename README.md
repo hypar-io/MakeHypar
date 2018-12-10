@@ -24,13 +24,17 @@ Elements is at the heart of the Hypar platform. A Hypar generator is a piece of 
     - On Mac and Linux: `ln -s <path to hypar executable> /usr/local/bin/hypar`
     - On windows add `<path to hypar>` to your user `PATH`.
 - Create a generator.
-Using the CLI, you can create a new generator by doing `hypar init <generator id>`. This will clone the generator repo to the folder `<generator id>`. Of course, you can replace `<generator-id>` with anything you like. The generator project is a buildable .net class library which references the Elements [NuGet package](https://www.nuget.org/packages/Hypar.Elements/).
-- Edit the `hypar.json`.
-The `hypar.json` file describes the interface for your generator. A the top of the `hypar.json` file, the `hypar-schema` is referenced. In Visual Studio Code you'll get code completion and documentation as you author the `hypar.json`.
+```
+hypar init <generator id>
+```
+This will clone the generator repo to the folder `<generator id>`. Of course, you can replace `<generator-id>` with anything you like. The generator project is a buildable .net class library which references the Elements [NuGet package](https://www.nuget.org/packages/Hypar.Elements/).
+- Edit the `hypar.json`. The `hypar.json` file describes the interface for your generator. A the top of the `hypar.json` file, the `hypar-schema` is referenced. In Visual Studio Code you'll get code completion and documentation as you author the `hypar.json`.
 - Use the CLI to generate input and output classes and a function stub. From the same directory as your `hypar.json` do:
 `hypar init`. This will generate `Input.gs.cs` and `Output.g.cs` classes which have properties which match your input and output properties. Addtionally, it will generate a `<function-id>.g.cs` whose `Execute(...)` method is where you put your business logic.
 - Build
-`dotnet build`
+```
+dotnet build
+```
 - Use the Hypar CLI to publish your function.
 ```
 cd <function directory>
