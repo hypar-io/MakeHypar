@@ -9,18 +9,8 @@ Generators are just code, so you're free to compile and run them wherever they'r
 
 <img src="https://github.com/hypar-io/starter/raw/master/preview.png" width="512px">
 
-### Inputs
-- Height - The height of the object.
-  - Min: 1.0
-  - Max: 10.0
-  - Step: 1.0
-- Location - The location of the object on the planet Earth.
-
-### Outputs
-- Area - The area of the mass.
-
-## Getting Started with Hypar
-This section is a deeper dive into how to get started with Hypar. If you clone this repo to get started building your own generator, then you can remove this section when you edit this `README.md`.
+## Getting Started Developing for the Hypar Platform
+Elements is at the heart of the Hypar platform. A Hypar generator is a piece of code that is executed in the cloud to generate a building or a set of building components. You author the generator logic referencing the Elements library, and publish the generator to Hypar, then Hypar executes it for you and store the results. You can see some generators written using Hypar Elements running on [Hypar](https://hypar.io). Hypar is just one example of a business that can be built on top of this tool. We fully expect you'll go and build your own cool thing.
 
 - Go to https://www.hypar.io/ and sign up. **A login is only required when publishing your function to the world!**
 - Install [.NET](https://www.microsoft.com/net/)
@@ -33,15 +23,14 @@ This section is a deeper dive into how to get started with Hypar. If you clone t
   - Link
     - On Mac and Linux: `ln -s <path to hypar executable> /usr/local/bin/hypar`
     - On windows add `<path to hypar>` to your user `PATH`.
-- Install an IDE. Here's a couple of options:
-  - [Visual Studio Code](https://code.visualstudio.com/). It's a free IDE with great support for .net and python and it looks and acts the same on every platform (Mac, Linux, Windows), so it makes our job of supporting you slightly easier.
-  - [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) is great too, but it doesn't exist for Linux and is still learning to walk on the Mac.
-- Clone this repo.  
-```git clone https://github.com/hypar-io/starter```. 
-- `cd starter`
-- Edit the `hypar.json` file to describe your function.
-- `hypar generate ./src` to build the `Input` and `Output` classes into the `src` directory.
-- `dotnet build`
+- Create a generator.
+Using the CLI, you can create a new generator by doing `hypar init <generator id>`. This will clone the generator repo to the folder `<generator id>`. Of course, you can replace `<generator-id>` with anything you like. The generator project is a buildable .net class library which references the Elements [NuGet package](https://www.nuget.org/packages/Hypar.Elements/).
+- Edit the `hypar.json`.
+The `hypar.json` file describes the interface for your generator. A the top of the `hypar.json` file, the `hypar-schema` is referenced. In Visual Studio Code you'll get code completion and documentation as you author the `hypar.json`.
+- Use the CLI to generate input and output classes and a function stub. From the same directory as your `hypar.json` do:
+`hypar init`. This will generate `Input.gs.cs` and `Output.g.cs` classes which have properties which match your input and output properties. Addtionally, it will generate a `<function-id>.g.cs` whose `Execute(...)` method is where you put your business logic.
+- Build
+`dotnet build`
 - Use the Hypar CLI to publish your function.
 ```
 cd <function directory>
