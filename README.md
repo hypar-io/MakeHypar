@@ -1,7 +1,7 @@
 <img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="200px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
 
 # generator
-This is a generator. A generator is code which generates buildings (or parts of buildings). More specifically, a generator is code which implements an interface from the [Elements](https://github.com/hypar-io/elements) library to take in a `Model`, do some compute, and return a `Model`. 
+This is a generator. A generator is code which generates buildings (or parts of buildings). More specifically, a generator is a function which takes in and returns a `Model`. 
 
 By managing your generator as code, you can take advantage of all the great tools for code collaboration and deployment offered by GitHub. Like any good repo, your generator should have a great `README.md`(like this one) which acts as the documentation for your generator. If you look below, you'll see that this `README.md` explains the generator's inputs and outputs, and has a short description of what kind of output your generator creates. Over time we're going to automate the creation of a preview image, like the one you see below, which'll give you a good idea of what you should expect to see from a generator.
 
