@@ -21,14 +21,18 @@
             "presentation": {
                 "showReuseMessage": false
             },
+            "options": {
+                "cwd": "${workspaceFolder}/test"
+            },
             "problemMatcher": "$msCompile"
         },
         {
             "label": "publish",
             "command": "hypar publish",
             "type": "shell",
-            "group": "build",
+            "group": "none",
             "presentation": {
+                "reveal": "always",
                 "showReuseMessage": false,
                 "focus": true,
             },
