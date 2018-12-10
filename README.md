@@ -29,6 +29,7 @@ This section is a deeper dive into how to get started with Hypar. If you clone t
     - [Windows](https://s3-us-west-1.amazonaws.com/hypar-cli/hypar-win-x64.zip)
     - [Mac](https://s3-us-west-1.amazonaws.com/hypar-cli/hypar-osx.10.12-x64.zip)
     - [Linux](https://s3-us-west-1.amazonaws.com/hypar-cli/hypar-linux-x64.zip)
+      - Linux requires that additional dependencies be installed to support .net. Those can be found [here](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore21#linux-distribution-dependencies).
   - Link
     - On Mac and Linux: `ln -s <path to hypar executable> /usr/local/bin/hypar`
     - On windows add `<path to hypar>` to your user `PATH`.
