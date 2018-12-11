@@ -1,0 +1,7 @@
+digraph G {
+  "Site Inputs" -> "Executor"
+  "Executor" -> "Generator"
+  "Generator" -> "Executor"
+  "Executor" -> "1234_elements.json"
+  "Executor" -> "1234_256_256.png"
+}
