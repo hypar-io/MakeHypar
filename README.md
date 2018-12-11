@@ -10,8 +10,9 @@ Generators are just code, so you're free to compile and run them wherever they'r
 <img src="https://github.com/hypar-io/starter/raw/master/preview.png" width="512px">
 
 ## Getting Started Developing for the Hypar Platform
-The [Elements library](https://github.com/hypar-io/elements) is at the heart of the Hypar platform. You author the generator logic referencing the Elements library, and publish the generator to Hypar, then Hypar executes it for you and stores the results. Here's a very high level diagram of what happens:
-<img src="https://github.com/hypar-io/generator/raw/master/example_graph.png">
+The [Elements library](https://github.com/hypar-io/elements) is at the heart of the Hypar platform. You author the generator logic referencing the Elements library, and publish the generator to Hypar, then Hypar executes it for you and stores the results. Here's a very high level diagram of what happens:  
+
+<img src="https://github.com/hypar-io/generator/raw/master/example_graph.png" width="300px">
 
 You can see some generators written using Hypar Elements running on [Hypar](https://hypar.io). Hypar is just one example of a business that can be built on top of this tool. We fully expect you'll go and build your own cool thing.
 
