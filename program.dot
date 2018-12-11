@@ -1,0 +1,16 @@
+digraph G {
+  "Generate Site" [shape=box]
+  "Generate Mass" [shape=box]
+  "Generate Facade" [shape=box]
+  "Site Inputs" [shape=circle]
+  "Mass Inputs" [shape=circle]
+  "Facade Inputs" [shape=circle]
+  "Site Inputs" -> "Generate Site"
+  "Generate Site" -> "Model: Site"
+  "Mass Inputs" -> "Generate Mass"
+  "Model: Site" -> "Generate Mass"
+  "Generate Mass" -> "Model: Mass"
+  "Facade Inputs" -> "Generate Facade"
+  "Model: Mass" -> "Generate Facade"
+  "Generate Facade" -> "Model: Facade"
+}

@@ -20,7 +20,7 @@ namespace Hypar
             var offset = origin.ToVectorMeters();
             var plines = outline.ToPolygons();
             var pline = plines[0];
-            var boundary = new Hypar.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).Reverse().ToList());
+            var boundary = new Hypar.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToList());
 
             var mass = new Mass(boundary, 0, input.Height);
 
