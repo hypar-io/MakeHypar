@@ -14,6 +14,7 @@ The [Elements library](https://github.com/hypar-io/elements) is at the heart of 
 
 - Go to https://www.hypar.io/ and sign up.
 - Install [.NET](https://www.microsoft.com/net/)
+- Install a good integrated development environment (IDE). We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [C# for Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) is also a great choice.
 - Install the Hypar CLI:
   - Download for:
     - [Windows](https://s3-us-west-1.amazonaws.com/hypar-cli/hypar-win-x64.zip)
