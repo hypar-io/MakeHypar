@@ -1,16 +1,16 @@
 digraph G {
-  "Generate Site" [shape=box]
-  "Generate Mass" [shape=box]
-  "Generate Facade" [shape=box]
+  "Site Generator" [shape=box]
+  "Mass Generator" [shape=box]
+  "Facade Generator" [shape=box]
   "Site Inputs" [shape=circle]
   "Mass Inputs" [shape=circle]
   "Facade Inputs" [shape=circle]
-  "Site Inputs" -> "Generate Site"
-  "Generate Site" -> "Model: Site"
-  "Mass Inputs" -> "Generate Mass"
-  "Model: Site" -> "Generate Mass"
-  "Generate Mass" -> "Model: Mass"
-  "Facade Inputs" -> "Generate Facade"
-  "Model: Mass" -> "Generate Facade"
-  "Generate Facade" -> "Model: Facade"
+  "Site Inputs" -> "Site Generator"
+  "Site Generator" -> "Model: Site"
+  "Mass Inputs" -> "Mass Generator"
+  "Model: Site" -> "Mass Generator"
+  "Mass Generator" -> "Model: Mass"
+  "Facade Inputs" -> "Facade Generator"
+  "Model: Mass" -> "Facade Generator"
+  "Facade Generator" -> "Model: Facade"
 }
