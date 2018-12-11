@@ -1,7 +1,7 @@
 digraph G {
-  "Site Inputs" -> "Executor"
-  "Executor" -> "Generator"
-  "Generator" -> "Executor"
-  "Executor" -> "1234_elements.json"
-  "Executor" -> "1234_256_256.png"
+  "Client: Inputs" -> "Hypar API"
+  "Hypar API" -> "Generator"
+  "Generator" -> "Hypar API"
+  "Hypar API" -> "1234_elements.json"
+  "Hypar API" -> "1234_256_256.png"
 }
