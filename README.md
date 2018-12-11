@@ -10,7 +10,7 @@ Generators are just code, so you're free to compile and run them wherever they'r
 <img src="https://github.com/hypar-io/starter/raw/master/preview.png" width="512px">
 
 ## Getting Started Developing for the Hypar Platform
-Elements is at the heart of the Hypar platform. A Hypar generator is a piece of code that is executed in the cloud to generate a building or a set of building components. You author the generator logic referencing the Elements library, and publish the generator to Hypar, then Hypar executes it for you and store the results. You can see some generators written using Hypar Elements running on [Hypar](https://hypar.io). Hypar is just one example of a business that can be built on top of this tool. We fully expect you'll go and build your own cool thing.
+The [Elements library](https://github.com/hypar-io/elements) is at the heart of the Hypar platform. You author the generator logic referencing the Elements library, and publish the generator to Hypar, then Hypar executes it for you and stores the results. You can see some generators written using Hypar Elements running on [Hypar](https://hypar.io). Hypar is just one example of a business that can be built on top of this tool. We fully expect you'll go and build your own cool thing.
 
 - Go to https://www.hypar.io/ and sign up.
 - Install [.NET](https://www.microsoft.com/net/)
