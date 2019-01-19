@@ -1,4 +1,5 @@
 using Hypar.Elements;
+using Hypar.Functions;
 using Hypar.Geometry;
 using System.Linq;
 
