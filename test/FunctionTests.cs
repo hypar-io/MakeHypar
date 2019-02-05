@@ -1,13 +1,13 @@
 using Hypar;
-using Hypar.Elements;
-using Hypar.Geometry;
+using Elements;
+using Elements.Geometry;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Xunit;
 
-namespace test
+namespace HyparDotnetStarter
 {
     /// <summary>
     /// This test suite simulates the execution of your function when running on Hypar.
@@ -68,26 +68,24 @@ namespace test
             // Add a model to the input to simulate a model
             // passing from a previous execution.
             _data.Model = new Model();
-            var spaceProfile = new Profile(Polygon.Rectangle(Vector3.Origin, 2, 2));
+            var spaceProfile = new Profile(Polygon.Rectangle(2, 2));
             var space = new Space(spaceProfile, 0, 2);
             _data.Model.AddElement(space);
         }
 
         [Fact]
-        public void Test()
+        public async void Test()
         {
             // Execute the function.
+            // As part of the execution, the model will be
+            // written to /<tmp>/<execution_id>_model.glb
             var func = new Function();
-            var output = func.Handler(_data, null);
+            var output = await func.Handler(_data, null);
 
             Assert.NotNull(_data.Model);
 
             // Check that the computed values are as expected.
-            var computed = (Dictionary<string,object>)output["computed"];
-            Assert.True(Math.Abs((double)computed["area"]) > 0.0);
-
-            var model = Model.FromJson(output["elements"].ToString());
-            model.SaveGltf("model.gltf");
+            Assert.True(Math.Abs(output.Area) > 0.0);
 
             // Serialize the results to json, so we can preview the results.
             // When Lambda runs the function, this is not necessary because it
