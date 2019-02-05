@@ -20,9 +20,9 @@ namespace HyparDotnetStarter
             var offset = origin.ToVectorMeters();
             var plines = outline.ToPolygons();
             var pline = plines[0];
-            var boundary = new Elements.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToList());
+            var boundary = new Elements.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToArray());
 
-            var mass = new Mass(boundary, 0, input.Height);
+            var mass = new Mass(new Profile(boundary), input.Height);
 
             // Add your mass element to a new Model.
             var model = new Model();
