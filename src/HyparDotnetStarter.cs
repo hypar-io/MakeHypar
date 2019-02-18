@@ -1,9 +1,10 @@
-using Hypar.Elements;
-using Hypar.Functions;
-using Hypar.Geometry;
+using Elements;
+using Elements.Geometry;
+using Elements.GeoJSON;
 using System.Linq;
 
-namespace Hypar
+
+namespace HyparDotnetStarter
 {
     /// <summary>
     /// The Hypar starter generator.
@@ -16,14 +17,14 @@ namespace Hypar
             // The GeoJSON may contain a number of features. Here we just
             // take the first one assuming it's a Polygon, and we use
             // its first point as the origin. 
-            var outline = (Hypar.GeoJSON.Polygon)input.Location[0].Geometry;
+            var outline = (Elements.GeoJSON.Polygon)input.Location[0].Geometry;
             var origin = outline.Coordinates[0][0];
             var offset = origin.ToVectorMeters();
             var plines = outline.ToPolygons();
             var pline = plines[0];
-            var boundary = new Hypar.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToList());
+            var boundary = new Elements.Geometry.Profile(new Elements.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToArray()));
 
-            var mass = new Mass(boundary, 0, input.Height);
+            var mass = new Mass(boundary, input.Height);
 
             // Add your mass element to a new Model.
             var model = new Model();
