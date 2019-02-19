@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Xunit;
+using HyparDotnetStarter;
 
 namespace HyparDotnetStarter
 {
@@ -69,7 +70,7 @@ namespace HyparDotnetStarter
             // passing from a previous execution.
             _data.Model = new Model();
             var spaceProfile = new Profile(Polygon.Rectangle(2, 2));
-            var space = new Space(spaceProfile, 0, 2);
+            var space = new Space(spaceProfile, 2, 0);
             _data.Model.AddElement(space);
         }
 
@@ -86,12 +87,6 @@ namespace HyparDotnetStarter
 
             // Check that the computed values are as expected.
             Assert.True(Math.Abs(output.Area) > 0.0);
-
-            // Serialize the results to json, so we can preview the results.
-            // When Lambda runs the function, this is not necessary because it
-            // handles serializing the result to a stream.
-            // var json = JsonConvert.SerializeObject(output);
-            // Console.WriteLine(json);
         }
 
         private static Stream GenerateStreamFromString(string s)
