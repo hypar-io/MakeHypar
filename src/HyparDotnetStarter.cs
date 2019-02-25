@@ -4,37 +4,37 @@ using System.Linq;
 
 namespace HyparDotnetStarter
 {
-    /// <summary>
-    /// The Hypar starter generator.
-    /// </summary>
+	/// <summary>
+	/// The Hypar starter generator.
+	/// </summary>
   	public class HyparDotnetStarter
 	{
 		public Output Execute(Input input)
 		{
 			// Extract location data.
-            // The GeoJSON may contain a number of features. Here we just
-            // take the first one assuming it's a Polygon, and we use
-            // its first point as the origin. 
-            var outline = (Elements.GeoJSON.Polygon)input.Location[0].Geometry;
-            var origin = outline.Coordinates[0][0];
-            var offset = origin.ToVectorMeters();
-            var plines = outline.ToPolygons();
-            var pline = plines[0];
-            var boundary = new Elements.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToArray());
+			// The GeoJSON may contain a number of features. Here we just
+			// take the first one assuming it's a Polygon, and we use
+			// its first point as the origin. 
+			var outline = (Elements.GeoJSON.Polygon)input.Location[0].Geometry;
+			var origin = outline.Coordinates[0][0];
+			var offset = origin.ToVectorMeters();
+			var plines = outline.ToPolygons();
+			var pline = plines[0];
+			var boundary = new Elements.Geometry.Polygon(pline.Vertices.Select(v => new Vector3(v.X - offset.X, v.Y - offset.Y, v.Z)).ToArray());
 
-            var mass = new Mass(new Profile(boundary), input.Height);
+			var mass = new Mass(new Profile(boundary), input.Height);
 
-            // Add your mass element to a new Model.
-            var model = new Model();
-            model.AddElement(mass);
+			// Add your mass element to a new Model.
+			var model = new Model();
+			model.AddElement(mass);
 
-            // Set the origin of the model to convey to Hypar
-            // where to position the generated 3D model.
-            model.Origin = origin;
+			// Set the origin of the model to convey to Hypar
+			// where to position the generated 3D model.
+			model.Origin = origin;
 
-            var output = new Output(model, mass.Profile.Perimeter.Area);
+			var output = new Output(model, mass.Profile.Perimeter.Area);
 
-            return output;
+			return output;
 		}
   	}
 }
