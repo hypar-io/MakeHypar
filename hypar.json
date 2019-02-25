@@ -1,26 +1,26 @@
 {
-    "$schema": "https://s3-us-west-1.amazonaws.com/hypar-schema/hypar-schema.json",
-    "description": "The Hypar starter generator.",
-    "function_id": "hypar-dotnet-starter",
-    "name": "Hypar Starter",
-    "inputs": {
-        "height": {
-            "min": 1.0,
-            "max": 10.0,
-            "step": 1.0,
-            "description": "The height of the object.",
-            "type": "range"
-        },
-        "location" : {
-            "description": "The location of the object on the planet Earth.",
-            "type": "location"
-        }
-    },
-    "outputs": {
-        "area": {
-            "description": "The area of the mass.",
-            "type": "number"
-        }
-    },
-    "repository_url": "https://github.com/hypar-io/generator"
+	"$schema": "https://s3-us-west-1.amazonaws.com/hypar-schema/hypar-schema.json",
+	"description": "The Hypar starter generator.",
+	"function_id": "hypar-dotnet-starter",
+	"name": "Hypar Starter",
+	"inputs": {
+		"height": {
+			"min": 1.0,
+			"max": 10.0,
+			"step": 1.0,
+			"description": "The height of the object.",
+			"type": "range"
+		},
+		"location" : {
+			"description": "The location of the object on the planet Earth.",
+			"type": "location"
+		}
+	},
+	"outputs": {
+		"area": {
+			"description": "The area of the mass.",
+			"type": "number"
+		}
+	},
+	"repository_url": "https://github.com/hypar-io/generator"
 }
