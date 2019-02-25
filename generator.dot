@@ -1,8 +1,0 @@
-digraph G {
-  "Client: Inputs" -> "Hypar API"
-  "Hypar API" -> "Generator"
-  "Generator" -> "Hypar API"
-  "Generator" -> "1234_elements.json"
-  "Generator" -> "1234_model.glb"
-  "Generator" -> "1234_256_256.png"
-}
