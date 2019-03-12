@@ -1,5 +1,6 @@
 using Elements;
 using Elements.Geometry;
+using System;
 using System.Linq;
 
 namespace HyparDotnetStarter
@@ -11,6 +12,8 @@ namespace HyparDotnetStarter
 	{
 		public Output Execute(Input input)
 		{
+			Console.WriteLine(input.Height);
+			
 			// Extract location data.
 			// The GeoJSON may contain a number of features. Here we just
 			// take the first one assuming it's a Polygon, and we use

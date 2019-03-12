@@ -17,7 +17,7 @@ namespace HyparDotnetStarter
     {
         // Some test data that replicates the payload sent to your function.
         private const string _testData = @"{
-                ""height"": 20.0,
+                ""height"": 1.0,
                 ""location"": [
                     {
                         ""geometry"": {
@@ -68,10 +68,10 @@ namespace HyparDotnetStarter
 
             // Add a model to the input to simulate a model
             // passing from a previous execution.
-            _data.Model = new Model();
-            var spaceProfile = new Profile(Polygon.Rectangle(2, 2));
-            var space = new Space(spaceProfile, 2, 0);
-            _data.Model.AddElement(space);
+            // _data.Model = new Model();
+            // var spaceProfile = new Profile(Polygon.Rectangle(2, 2));
+            // var space = new Space(spaceProfile, 2, 0);
+            // _data.Model.AddElement(space);
         }
 
         [Fact]
@@ -83,7 +83,11 @@ namespace HyparDotnetStarter
             var func = new Function();
             var output = await func.Handler(_data, null);
 
-            Assert.NotNull(_data.Model);
+            Assert.NotNull(output.Model);
+
+            // Output the model to the live directory.
+            // This will enable 
+            output.Model.SaveGlb("../../../../live/models/model.glb");
 
             // Check that the computed values are as expected.
             Assert.True(Math.Abs(output.Area) > 0.0);
