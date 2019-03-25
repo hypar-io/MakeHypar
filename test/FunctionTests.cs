@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using Xunit;
 using HyparDotnetStarter;
+using Elements.Serialization.glTF;
 
 namespace HyparDotnetStarter
 {
@@ -17,7 +18,7 @@ namespace HyparDotnetStarter
     {
         // Some test data that replicates the payload sent to your function.
         private const string _testData = @"{
-                ""height"": 1.0,
+                ""height"": 50.0,
                 ""location"": [
                     {
                         ""geometry"": {
@@ -87,7 +88,7 @@ namespace HyparDotnetStarter
 
             // Output the model to the live directory.
             // This will enable 
-            output.Model.SaveGlb("../../../../live/models/model.glb");
+            output.Model.ToGlTF("../../../../live/models/model.glb");
 
             // Check that the computed values are as expected.
             Assert.True(Math.Abs(output.Area) > 0.0);
