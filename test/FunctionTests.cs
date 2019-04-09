@@ -1,9 +1,4 @@
-using Hypar;
-using Elements;
-using Elements.Geometry;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Xunit;
 using Elements.Serialization.glTF;

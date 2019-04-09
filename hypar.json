@@ -2,17 +2,17 @@
 	"$schema": "https://hypar.io/schemas/function.json",
 	"description": "Construct a hypar.",
 	"function_id": "construct-hypar",
-	"name": "ConstructHypar",
+	"name": "Construct A Hypar",
 	"inputs": {
 		"X Amplitude": {
-			"min": 0.0,
+			"min": 1.0,
 			"max": 10.0,
 			"step": 1.0,
 			"description": "The amplitude in the x direction.",
 			"type": "range"
 		},
 		"Y Amplitude": {
-			"min": 0.0,
+			"min": 1.0,
 			"max": 10.0,
 			"step": 1.0,
 			"description": "The amplitude in the y direction.",
