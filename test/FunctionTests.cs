@@ -6,10 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Xunit;
-using HyparDotnetStarter;
 using Elements.Serialization.glTF;
 
-namespace HyparDotnetStarter
+namespace ConstructHypar
 {
     /// <summary>
     /// This test suite simulates the execution of your function when running on Hypar.
@@ -18,40 +17,8 @@ namespace HyparDotnetStarter
     {
         // Some test data that replicates the payload sent to your function.
         private const string _testData = @"{
-                ""height"": 50.0,
-                ""location"": [
-                    {
-                        ""geometry"": {
-                        ""type"": ""Polygon"",
-                        ""coordinates"": [
-                            [
-                                [
-                                    -96.78204,
-                                    32.78411
-                                ],
-                                [
-                                    -96.78191,
-                                    32.78359
-                                ],
-                                [
-                                    -96.78050,
-                                    32.78383
-                                ],
-                                [
-                                    -96.78063,
-                                    32.78438
-                                ],
-                                [
-                                    -96.78204,
-                                    32.78411
-                                ]
-                            ]
-                        ]
-                    },
-                    ""type"": ""Feature"",
-                    ""properties"": {}
-                }
-            ]
+                ""X Amplitude"": 2.0,
+                ""Y Amplitude"": 2.0
             }";
 
         private Input _data;
@@ -88,10 +55,10 @@ namespace HyparDotnetStarter
 
             // Output the model to the live directory.
             // This will enable 
-            output.Model.ToGlTF("../../../../live/models/model.glb");
+            output.Model.ToGlTF("../../../../model.glb");
 
             // Check that the computed values are as expected.
-            Assert.True(Math.Abs(output.Area) > 0.0);
+            Assert.True(Math.Abs(output.MaximumBeamLength) > 0.0);
         }
 
         private static Stream GenerateStreamFromString(string s)

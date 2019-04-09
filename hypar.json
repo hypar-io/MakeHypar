@@ -1,26 +1,41 @@
 {
 	"$schema": "https://hypar.io/schemas/function.json",
-	"description": "The Hypar starter generator.",
-	"function_id": "hypar-dotnet-starter",
-	"name": "Hypar Starter",
+	"description": "Construct a hypar.",
+	"function_id": "construct-hypar",
+	"name": "ConstructHypar",
 	"inputs": {
-		"height": {
-			"min": 1.0,
+		"X Amplitude": {
+			"min": 0.0,
 			"max": 10.0,
 			"step": 1.0,
-			"description": "The height of the object.",
+			"description": "The amplitude in the x direction.",
 			"type": "range"
 		},
-		"location" : {
-			"description": "The location of the object on the planet Earth.",
-			"type": "location"
+		"Y Amplitude": {
+			"min": 0.0,
+			"max": 10.0,
+			"step": 1.0,
+			"description": "The amplitude in the y direction.",
+			"type": "range"
 		}
 	},
 	"outputs": {
-		"area": {
-			"description": "The area of the mass.",
+		"Maximum Beam Length": {
+			"description": "The maximum length of a beam.",
+			"type": "number"
+		},
+		"Minimum Beam Length": {
+			"description": "The minimum length of a beam.",
+			"type": "number"
+		},
+		"Minimum Elevation": {
+			"description": "The minimum elevation of any beam's center line vertices.",
+			"type": "number"
+		},
+		"Maximum Elevation": {
+			"description": "The maximum elevation of any beam's center line vertices.",
 			"type": "number"
 		}
 	},
-	"repository_url": "https://github.com/hypar-io/generator"
+	"repository_url": "https://github.com/hypar-io/hypar"
 }
