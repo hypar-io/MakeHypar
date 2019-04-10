@@ -56,14 +56,17 @@ namespace ConstructHypar
                         b = colA[i+1];
                         var line1 = new Line(a,b);
 
-                        minLength = Math.Min(line1.Length(), minLength);
-                        maxLength = Math.Max(line1.Length(), maxLength);
+                        var l = line1.Length();
+                        minLength = Math.Min(l, minLength);
+                        maxLength = Math.Max(l, maxLength);
                         minEl = Math.Min(a.Z, minEl);
                         minEl = Math.Min(b.Z, minEl);
                         maxEl = Math.Max(a.Z, maxEl);
                         maxEl = Math.Max(b.Z, maxEl);
 
                         var beam1 = new Beam(line1, t1);
+                        beam1.AddProperty("length", new NumericProperty(l, UnitType.Distance));
+
                         beams.Add(beam1);
                     }
 
@@ -72,14 +75,17 @@ namespace ConstructHypar
                         var c = colB[i];
                         var line2 = new Line(a,c);
 
-                        minLength = Math.Min(line2.Length(), minLength);
-                        maxLength = Math.Max(line2.Length(), maxLength);
+                        var l = line2.Length();
+                        minLength = Math.Min(l, minLength);
+                        maxLength = Math.Max(l, maxLength);
                         minEl = Math.Min(a.Z, minEl);
                         minEl = Math.Min(c.Z, minEl);
                         maxEl = Math.Max(a.Z, maxEl);
                         maxEl = Math.Max(c.Z, maxEl);
 
                         var beam2 = new Beam(line2, t2);
+                        beam2.AddProperty("length", new NumericProperty(l, UnitType.Distance));
+
                         beams.Add(beam2);
                     }
                 }
