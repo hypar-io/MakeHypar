@@ -1,29 +1,29 @@
 {
 	"$schema": "https://hypar.io/schemas/function.json",
-	"description": "The Hypar starter generator.",
-	"function_id": "hypar-dotnet-starter",
+	"description": "A starter function for Hypar.io.",
+	"id": "hypar-dotnet-starter",
 	"name": "Hypar Starter",
 	"inputs": [
 		{
 			"name": "height",
-			"min": 1.0,
-			"max": 10.0,
+			"min": 30.0,
+			"max": 100.0,
 			"step": 1.0,
-			"description": "The height of the object.",
+			"description": "Height of the object.",
 			"type": "range"
 		},
 		{
 			"name": "location",
-			"description": "The location of the object on the planet Earth.",
+			"description": "Location of the object on the planet Earth.",
 			"type": "location"
 		}
 	],
 	"outputs": [
 		{
 			"name": "area",
-			"description": "The area of the mass.",
+			"description": "Area of the mass.",
 			"type": "number"
 		}
 	],
-	"repository_url": "https://github.com/hypar-io/generator"
+	"repository_url": "https://github.com/hypar-io/function"
 }
