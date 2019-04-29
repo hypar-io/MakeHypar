@@ -5,7 +5,7 @@ This is an example function. A function receives a `Model`, does some compute, a
 
 By managing your function as code, you can take advantage of all the great tools for code collaboration and deployment offered by GitHub. Like any good repo, your function should have a great `README.md`(like this one) which acts as its documentation. Over time we're going to automate the creation of a preview image, like the one you see below, which'll give you a good idea of what you should expect to see from a function.
 
-Functions are just code, so you're free to compile and run them wherever they're compatible. This function is a .Net Standard 2.0 library written in C# which means you can use it in a Revit addin, a Unity app, or as a "zero touch" library in Dynamo. But if you really want to put your function to work, you can publish it to run on the Hypar platform, making it globally available and executable via Hypar's API. You can see this function running [here](https://hypar.io/functions/hypar-dotnet-starter).  
+Functions are just code, so you're free to compile and run them wherever they're compatible. This function is a .Net Standard 2.0 library written in C# which means you can use it in a Revit addin, a Unity app, or as a "zero touch" library in Dynamo. But if you really want to put your function to work, you can publish it to run on the Hypar platform, making it globally available and executable via Hypar's API. You can see this function running [here](https://hypar.io/functions/hypar-dotnet-starter/executions).  
 
 <img src="https://github.com/hypar-io/starter/raw/master/preview.png" width="512px">
 
