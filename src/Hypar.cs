@@ -1,27 +1,30 @@
+using System;
+using System.Collections.Generic;
 using Elements;
 using Elements.Geometry;
 using Elements.Geometry.Profiles;
-using System;
-using System.Collections.Generic;
 
-namespace ConstructHypar
+namespace Hypar
 {
-    /// <summary>
-    /// Construct a hypar.
-    /// </summary>
-  	public class ConstructHypar
-    {
-        public Output Execute(Input input)
-        {
-            double minLength, maxLength, minEl, maxEl;
+  	public static class Hypar
+	{
+		/// <summary>
+		/// Construct a hypar.
+		/// </summary>
+		/// <param name="model">The model. 
+		/// Add elements to the model to have them persisted.</param>
+		/// <param name="input">The arguments to the execution.</param>
+		/// <returns>A HyparOutputs instance containing computed results.</returns>
+		public static HyparOutputs Execute(Model model, HyparInputs input)
+		{
+			double minLength, maxLength, minEl, maxEl;
             var beams = ContstructBeams(input.XAmplitude, input.YAmplitude, 
                 out maxLength, out minLength, out minEl, out maxEl);
-            var model = new Model();
             model.AddElements(beams);
-            return new Output(model, maxLength, minLength, minEl, maxEl);
-        }
+            return new HyparOutputs(maxLength, minLength, minEl, maxEl);
+		}
 
-        public List<Beam> ContstructBeams(double xAmp, double yAmp, 
+		public static List<Beam> ContstructBeams(double xAmp, double yAmp, 
             out double maxLength, out double minLength, out double minEl, out double maxEl)
         {
             minLength = double.PositiveInfinity;
@@ -29,7 +32,7 @@ namespace ConstructHypar
             minEl = double.PositiveInfinity;
             maxEl = double.NegativeInfinity;
 
-            var pts = Hypar(xAmp, yAmp);
+            var pts = ConstructHypar(xAmp, yAmp);
             var m1 = new Material("red", Colors.Red, 0f, 0f);
             var m2 = new Material("green", Colors.Green, 0f, 0f);
 
@@ -93,7 +96,7 @@ namespace ConstructHypar
             return beams;
         }
 
-        private List<List<Vector3>> Hypar(double a, double b)
+        private static List<List<Vector3>> ConstructHypar(double a, double b)
         {
             var result = new List<List<Vector3>>();
             for(var x = -5; x<=5; x++)
@@ -109,5 +112,5 @@ namespace ConstructHypar
 
             return result;
         }
-    }
+  	}
 }

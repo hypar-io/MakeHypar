@@ -2,7 +2,7 @@
 	"$schema": "https://hypar.io/schemas/function.json",
 	"description": "Construct a hypar.",
 	"id": "construct-hypar",
-	"name": "Construct A Hypar",
+	"name": "Hypar",
 	"inputs": [
 		{
 			"name": "X Amplitude",
