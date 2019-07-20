@@ -1,5 +1,7 @@
 <img src="https://github.com/hypar-io/sdk/blob/master/hypar_logo.svg" width="200px" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
 
+# THE STARTER FUNCTION HAS BEEN DEPRECATED IN FAVOR OF THE [GETTING STARTED GUIDE](https://hypar-io.github.io/Elements/Platform/GettingStartedWithTheHyparPlatform.html)
+
 # Function
 This is an example function. A function receives a `Model`, does some compute, and returns a `Model`. Functions can take additional `inputs`, and output additional `outputs` as well.
 
