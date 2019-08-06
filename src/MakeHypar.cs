@@ -4,9 +4,9 @@ using Elements;
 using Elements.Geometry;
 using Elements.Geometry.Profiles;
 
-namespace Hypar
+namespace MakeHypar
 {
-  	public static class Hypar
+  	public static class MakeHypar
 	{
 		/// <summary>
 		/// Construct a hypar.
@@ -15,16 +15,16 @@ namespace Hypar
 		/// Add elements to the model to have them persisted.</param>
 		/// <param name="input">The arguments to the execution.</param>
 		/// <returns>A HyparOutputs instance containing computed results.</returns>
-		public static HyparOutputs Execute(Model model, HyparInputs input)
+		public static MakeHyparOutputs Execute(Model model, MakeHyparInputs input)
 		{
 			double minLength, maxLength, minEl, maxEl;
-            var beams = ContstructBeams(input.XAmplitude, input.YAmplitude, 
+            var beams = ContstructBeams(input.XAmplitude, input.YAmplitude, (int)input.Divisions, 
                 out maxLength, out minLength, out minEl, out maxEl);
             model.AddElements(beams);
-            return new HyparOutputs(maxLength, minLength, minEl, maxEl);
+            return new MakeHyparOutputs(maxLength, minLength, minEl, maxEl);
 		}
 
-		public static List<Beam> ContstructBeams(double xAmp, double yAmp, 
+		public static List<Beam> ContstructBeams(double xAmp, double yAmp, int divisions,
             out double maxLength, out double minLength, out double minEl, out double maxEl)
         {
             minLength = double.PositiveInfinity;
@@ -32,9 +32,9 @@ namespace Hypar
             minEl = double.PositiveInfinity;
             maxEl = double.NegativeInfinity;
 
-            var pts = ConstructHypar(xAmp, yAmp);
-            var m1 = new Material("red", Colors.Red, 0f, 0f);
-            var m2 = new Material("green", Colors.Green, 0f, 0f);
+            var pts = ConstructHypar(xAmp, yAmp, divisions);
+            var m1 = new Material("red", Colors.Yellow, 0f, 0f);
+            var m2 = new Material("green", Colors.Blue, 0f, 0f);
 
             var t1 = new StructuralFramingType("W16x31", WideFlangeProfileServer.Instance.GetProfileByName("W16x31"), m1);
             var t2 = new StructuralFramingType("W16x31", WideFlangeProfileServer.Instance.GetProfileByName("W16x31"), m2);
@@ -96,13 +96,13 @@ namespace Hypar
             return beams;
         }
 
-        private static List<List<Vector3>> ConstructHypar(double a, double b)
+        private static List<List<Vector3>> ConstructHypar(double a, double b, int div)
         {
             var result = new List<List<Vector3>>();
-            for(var x = -5; x<=5; x++)
+            for(var x = -div/2; x<=div/2; x++)
             {
                 var column = new List<Vector3>();
-                for(var y=-5; y<=5; y++)
+                for(var y=-div/2; y<=div/2; y++)
                 {
                     var z = Math.Pow(y,2)/Math.Pow(b,2) - Math.Pow(x,2)/Math.Pow(a,2);
                     column.Add(new Vector3(x, y, z));

@@ -333,3 +333,5 @@ ASALocalRun/
 *.glb
 *.gltf
 *.bin
+output.json
+input.json
