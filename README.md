@@ -13,5 +13,7 @@ This function makes a hyperbolic paraboloid (hypar) surface from beams.
 
 |Output|Description|
 |----|----|
-|Foo|This is the first output|
-|Bar|This is the second output|
+|Maximum Beam Length|The maximum length of a beam.|
+|Minimum Beam Length|The minimum length of a beam.|
+|Minimum Elevation|The minimum elevation of any beam's center line vertices.|
+|Maximum Elevation|The maximum elevation of any beam's center line vertices.|
