@@ -9,12 +9,13 @@ using Hypar.Functions;
 using Hypar.Functions.Execution;
 using Hypar.Functions.Execution.AWS;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 
 namespace MakeHypar
 {
-	public class MakeHyparOutputs: ResultsBase
-	{
+    public class MakeHyparOutputs: ResultsBase
+    {
 		/// <summary>
 		/// The maximum length of a beam.
 		/// </summary>
@@ -40,28 +41,35 @@ namespace MakeHypar
 		public double MaximumElevation {get;}
 
 
-		
-		/// <summary>
-		/// Construct a MakeHyparOutputs with default inputs.
-		/// This should be used only for testing.
-		/// </summary>
-		public MakeHyparOutputs() : base()
-		{
+        
+        /// <summary>
+        /// Construct a MakeHyparOutputs with default inputs.
+        /// This should be used for testing only.
+        /// </summary>
+        public MakeHyparOutputs() : base()
+        {
 
-		}
-		
-		/// <summary>
-		/// Construct a MakeHyparOutputs specifying all inputs.
-		/// </summary>
-		/// <returns></returns>
-		[JsonConstructor]
-		public MakeHyparOutputs(double maximumbeamlength, double minimumbeamlength, double minimumelevation, double maximumelevation): base()
-		{
+        }
+
+
+        /// <summary>
+        /// Construct a MakeHyparOutputs specifying all inputs.
+        /// </summary>
+        /// <returns></returns>
+        [JsonConstructor]
+        public MakeHyparOutputs(double maximumbeamlength, double minimumbeamlength, double minimumelevation, double maximumelevation): base()
+        {
 			this.MaximumBeamLength = maximumbeamlength;
 			this.MinimumBeamLength = minimumbeamlength;
 			this.MinimumElevation = minimumelevation;
 			this.MaximumElevation = maximumelevation;
 
+		}
+
+		public override string ToString()
+		{
+			var json = JsonConvert.SerializeObject(this);
+			return json;
 		}
 	}
 }

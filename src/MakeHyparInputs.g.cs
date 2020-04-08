@@ -9,20 +9,21 @@ using Hypar.Functions;
 using Hypar.Functions.Execution;
 using Hypar.Functions.Execution.AWS;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 
 namespace MakeHypar
 {
-	public class MakeHyparInputs: S3Args
-	{
+    public class MakeHyparInputs: S3Args
+    {
 		/// <summary>
-		/// The amplitude in the x direction.
+		/// The amplitude in the X direction.
 		/// </summary>
 		[JsonProperty("X Amplitude")]
 		public double XAmplitude {get;}
 
 		/// <summary>
-		/// The amplitude in the y direction.
+		/// The amplitude in the Y direction.
 		/// </summary>
 		[JsonProperty("Y Amplitude")]
 		public double YAmplitude {get;}
@@ -33,31 +34,46 @@ namespace MakeHypar
 		[JsonProperty("Divisions")]
 		public double Divisions {get;}
 
-
-		
 		/// <summary>
-		/// Construct a MakeHyparInputs with default inputs.
-		/// This should be used only for testing.
+		/// A flag indicating whether HSS sections should be used.
 		/// </summary>
-		public MakeHyparInputs() : base()
-		{
+		[JsonProperty("Use HSS sections")]
+		public bool UseHSSSections {get;}
+
+
+        
+        /// <summary>
+        /// Construct a MakeHyparInputs with default inputs.
+        /// This should be used for testing only.
+        /// </summary>
+        public MakeHyparInputs() : base()
+        {
 			this.XAmplitude = 10;
 			this.YAmplitude = 10;
 			this.Divisions = 20;
+			this.UseHSSSections = false;
 
-		}
-		
-		/// <summary>
-		/// Construct a MakeHyparInputs specifying all inputs.
-		/// </summary>
-		/// <returns></returns>
-		[JsonConstructor]
-		public MakeHyparInputs(double xamplitude, double yamplitude, double divisions, string bucketName, string uploadsBucket, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, gltfKey, elementsKey, ifcKey)
-		{
+        }
+
+
+        /// <summary>
+        /// Construct a MakeHyparInputs specifying all inputs.
+        /// </summary>
+        /// <returns></returns>
+        [JsonConstructor]
+        public MakeHyparInputs(double xamplitude, double yamplitude, double divisions, bool usehSSsections, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
+        {
 			this.XAmplitude = xamplitude;
 			this.YAmplitude = yamplitude;
 			this.Divisions = divisions;
+			this.UseHSSSections = usehSSsections;
 
+		}
+
+		public override string ToString()
+		{
+			var json = JsonConvert.SerializeObject(this);
+			return json;
 		}
 	}
 }
