@@ -21,3 +21,5 @@ Construct a hypar by providing the X and Y amplitudes and the number of panel di
 |Minimum Elevation|Number|The minimum elevation of any beam's center line vertices.|
 |Maximum Elevation|Number|The maximum elevation of any beam's center line vertices.|
 
+Work with Hypar version 0.7.3 
+
