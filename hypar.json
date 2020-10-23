@@ -1,9 +1,10 @@
 {
   "$schema": "https://hypar.io/Schemas/Function.json",
-  "id": "baa76c48-f800-4e13-a6cf-a69b9998bac7",
-  "name": "MakeHypar",
-  "description": "The MakeHypar function.",
+  "description": "Construct a hypar by providing the X and Y amplitudes and the number of panel divisions. And other stuff.",
+  "id": "construct-hypar",
   "language": "C#",
+  "name": "Make Hypar",
+  "repository_url": "https://github.com/hypar-io/hypar",
   "inputs": [
     {
       "min": 1.0,
