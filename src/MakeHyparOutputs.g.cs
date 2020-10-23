@@ -41,7 +41,7 @@ namespace MakeHypar
 		public double MaximumElevation {get;}
 
 
-        
+
         /// <summary>
         /// Construct a MakeHyparOutputs with default inputs.
         /// This should be used for testing only.
@@ -57,12 +57,12 @@ namespace MakeHypar
         /// </summary>
         /// <returns></returns>
         [JsonConstructor]
-        public MakeHyparOutputs(double maximumbeamlength, double minimumbeamlength, double minimumelevation, double maximumelevation): base()
+        public MakeHyparOutputs(double maximumBeamLength, double minimumBeamLength, double minimumElevation, double maximumElevation): base()
         {
-			this.MaximumBeamLength = maximumbeamlength;
-			this.MinimumBeamLength = minimumbeamlength;
-			this.MinimumElevation = minimumelevation;
-			this.MaximumElevation = maximumelevation;
+			this.MaximumBeamLength = maximumBeamLength;
+			this.MinimumBeamLength = minimumBeamLength;
+			this.MinimumElevation = minimumElevation;
+			this.MaximumElevation = maximumElevation;
 
 		}
 

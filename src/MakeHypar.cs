@@ -19,7 +19,7 @@ namespace MakeHypar
         public static MakeHyparOutputs Execute(Dictionary<string, Model> models, MakeHyparInputs input)
         {
             double minLength, maxLength, minEl, maxEl;
-            var beams = ContstructBeams(input.XAmplitude, input.YAmplitude, (int)input.Divisions,
+            var beams = ConstructBeams(input.XAmplitude, input.YAmplitude, (int)input.Divisions,
                 out maxLength, out minLength, out minEl, out maxEl, input.UseHSSSections);
 
             var model = new Model();
@@ -31,7 +31,7 @@ namespace MakeHypar
             return outputs;
         }
 
-        public static List<Beam> ContstructBeams(double xAmp, double yAmp, int divisions,
+        public static List<Beam> ConstructBeams(double xAmp, double yAmp, int divisions,
             out double maxLength, out double minLength, out double minEl, out double maxEl, bool useHss)
         {
             minLength = double.PositiveInfinity;
@@ -46,13 +46,12 @@ namespace MakeHypar
             Profile t1 = null;
             if (useHss)
             {
-                t1 = HSSPipeProfileServer.Instance.AllProfiles().First();
+                t1 = GetHSSPipeProfileByName("HSS6_000x0_125");
             }
             else
             {
-                t1 = WideFlangeProfileServer.Instance.GetProfileByName("W16x31");
+                t1 = GetWideFlangeProfileByName("W16x31");
             }
-            var t2 = WideFlangeProfileServer.Instance.GetProfileByName("W16x31");
 
             var beams = new List<Beam>();
 
@@ -107,7 +106,7 @@ namespace MakeHypar
                         maxEl = Math.Max(a.Z, maxEl);
                         maxEl = Math.Max(c.Z, maxEl);
 
-                        var beam2 = new Beam(line2, t2, m2);
+                        var beam2 = new Beam(line2, t1, m2);
                         // beam2.AddProperty("length", new NumericProperty(l, UnitType.Distance));
 
                         beams.Add(beam2);
@@ -115,6 +114,19 @@ namespace MakeHypar
                 }
             }
             return beams;
+        }
+
+        private static HSSPipeProfile GetHSSPipeProfileByName(string name)
+        {
+            HSSPipeProfileType profileType = (HSSPipeProfileType)Enum.Parse(typeof(HSSPipeProfileType), name);
+            return (HSSPipeProfile)HSSPipeProfileServer.Instance.GetProfileByType(profileType);
+        }
+        private static WideFlangeProfile GetWideFlangeProfileByName(string name)
+        {
+          // need try/except in case invalid entry??
+          // else limit "choices" to enums somehow
+          WideFlangeProfileType profileType = (WideFlangeProfileType)Enum.Parse(typeof(WideFlangeProfileType), name);
+          return (WideFlangeProfile)WideFlangeProfileServer.Instance.GetProfileByType(profileType);
         }
 
         private static List<List<Vector3>> ConstructHypar(double a, double b, int div, out double minZ)

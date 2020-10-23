@@ -41,7 +41,7 @@ namespace MakeHypar
 		public bool UseHSSSections {get;}
 
 
-        
+
         /// <summary>
         /// Construct a MakeHyparInputs with default inputs.
         /// This should be used for testing only.
@@ -61,12 +61,12 @@ namespace MakeHypar
         /// </summary>
         /// <returns></returns>
         [JsonConstructor]
-        public MakeHyparInputs(double xamplitude, double yamplitude, double divisions, bool usehSSsections, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
+        public MakeHyparInputs(double xAmplitude, double yAmplitude, double divisions, bool useHSSSections, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
         {
-			this.XAmplitude = xamplitude;
-			this.YAmplitude = yamplitude;
+			this.XAmplitude = xAmplitude;
+			this.YAmplitude = yAmplitude;
 			this.Divisions = divisions;
-			this.UseHSSSections = usehSSsections;
+			this.UseHSSSections = useHSSSections;
 
 		}
 
