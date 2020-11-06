@@ -1,17 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\dependencies\MakeHypar.Dependencies.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hypar.Elements" Version="0.7.3" />
+    <PackageReference Include="Hypar.Functions" Version="0.7.3" />
+  </ItemGroup>
+
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>Hypar</RootNamespace>
-    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Amazon.Lambda.Core" Version="1.1.0" />
-    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.5.0" />
-    <PackageReference Include="AWSSDK.S3" Version="3.3.102.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Hypar\Elements\src\Elements\Elements.csproj" />
-    <ProjectReference Include="..\..\Hypar\Functions\src\Hypar.Functions.csproj" />
-  </ItemGroup>
+
 </Project>

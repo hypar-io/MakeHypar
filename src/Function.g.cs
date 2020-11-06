@@ -30,7 +30,7 @@ namespace MakeHypar
                 var asmDir = Path.GetDirectoryName(asmLocation);
                 var asmName = Path.GetFileNameWithoutExtension(asmLocation);
                 var depPath = Path.Combine(asmDir, $"{asmName}.Dependencies.dll");
-                
+
                 if(File.Exists(depPath))
                 {
                     Console.WriteLine($"Loading dependencies from assembly: {depPath}...");
@@ -40,7 +40,7 @@ namespace MakeHypar
 
                 this.store = new S3ModelStore<MakeHyparInputs>(RegionEndpoint.USWest1);
             }
-            
+
             var l = new InvocationWrapper<MakeHyparInputs,MakeHyparOutputs>(store, MakeHypar.Execute);
             var output = await l.InvokeAsync(args);
             return output;
