@@ -46,11 +46,11 @@ namespace MakeHypar
             Profile t1 = null;
             if (useHss)
             {
-                t1 = GetHSSPipeProfileByName("HSS6_000x0_125");
+                t1 = HSSPipeProfileServer.Instance.GetProfileByType(HSSPipeProfileType.HSS6_000x0_125);
             }
             else
             {
-                t1 = GetWideFlangeProfileByName("W16x31");
+                t1 = WideFlangeProfileServer.Instance.GetProfileByType(WideFlangeProfileType.W16x31);
             }
 
             var beams = new List<Beam>();
@@ -114,19 +114,6 @@ namespace MakeHypar
                 }
             }
             return beams;
-        }
-
-        private static HSSPipeProfile GetHSSPipeProfileByName(string name)
-        {
-            HSSPipeProfileType profileType = (HSSPipeProfileType)Enum.Parse(typeof(HSSPipeProfileType), name);
-            return (HSSPipeProfile)HSSPipeProfileServer.Instance.GetProfileByType(profileType);
-        }
-        private static WideFlangeProfile GetWideFlangeProfileByName(string name)
-        {
-          // need try/except in case invalid entry??
-          // else limit "choices" to enums somehow
-          WideFlangeProfileType profileType = (WideFlangeProfileType)Enum.Parse(typeof(WideFlangeProfileType), name);
-          return (WideFlangeProfile)WideFlangeProfileServer.Instance.GetProfileByType(profileType);
         }
 
         private static List<List<Vector3>> ConstructHypar(double a, double b, int div, out double minZ)

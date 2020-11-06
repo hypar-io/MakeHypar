@@ -1,8 +1,8 @@
 <img src="preview.png" width="512">
-            
-# Make Hypar
 
-Construct a hypar by providing the X and Y amplitudes and the number of panel divisions. And other stuff.
+# MakeHypar
+
+The MakeHypar function.
 
 |Input Name|Type|Description|
 |---|---|---|
