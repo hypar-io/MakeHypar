@@ -21,3 +21,5 @@ The MakeHypar function.
 |Minimum Elevation|Number|The minimum elevation of any beam's center line vertices.|
 |Maximum Elevation|Number|The maximum elevation of any beam's center line vertices.|
 
+Works with Hypar version 0.7.3 
+
